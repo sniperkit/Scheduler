@@ -1,12 +1,12 @@
 package services
 
 import (
-	"github.com/google/go-github/github"
 	"context"
-	"github.com/Golang-Coach/Scheduler/models"
-	"github.com/shurcooL/github_flavored_markdown"
-	"strings"
 	"errors"
+	"github.com/google/go-github/github"
+	"github.com/shurcooL/github_flavored_markdown"
+	"github.com/sniperkit/Scheduler/models"
+	"strings"
 )
 
 type IRepositoryServices interface {
@@ -47,8 +47,8 @@ func (service Github) GetRepositoryInfo(owner string, repositoryName string) (*m
 		return nil, err
 	}
 	repositoryInfo := &models.RepositoryInfo{
-		RepoName: *repo.Name,
-		Owner:      strings.Split(*repo.FullName, "/")[0] ,
+		RepoName:    *repo.Name,
+		Owner:       strings.Split(*repo.FullName, "/")[0],
 		FullName:    *repo.FullName,
 		Description: *repo.Description,
 		ForksCount:  *repo.ForksCount,

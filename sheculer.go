@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/Golang-Coach/Scheduler/models"
-	"github.com/Golang-Coach/Scheduler/services"
-	"gopkg.in/mgo.v2/bson"
 	"fmt"
+	"github.com/sniperkit/Scheduler/models"
+	"github.com/sniperkit/Scheduler/services"
+	"gopkg.in/mgo.v2/bson"
 	"time"
 )
 
@@ -55,7 +55,7 @@ func updatePackage(repositories []models.RepositoryInfo, githubService services.
 			}
 		case <-time.After(5 * time.Second):
 			fmt.Println("Timeout")
-			return responses;
+			return responses
 		}
 	}
 	return responses

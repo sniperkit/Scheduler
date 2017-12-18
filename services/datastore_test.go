@@ -1,12 +1,12 @@
 package services_test
 
 import (
-	"testing"
 	. "github.com/smartystreets/goconvey/convey"
-	"github.com/Golang-Coach/Scheduler/mocks"
-	"github.com/Golang-Coach/Scheduler/models"
-	"github.com/Golang-Coach/Scheduler/services"
+	"github.com/sniperkit/Scheduler/mocks"
+	"github.com/sniperkit/Scheduler/models"
+	"github.com/sniperkit/Scheduler/services"
 	"gopkg.in/mgo.v2/bson"
+	"testing"
 )
 
 func TestDataStore(t *testing.T) {

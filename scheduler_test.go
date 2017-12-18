@@ -1,13 +1,13 @@
 package main
 
 import (
-	"testing"
-	. "github.com/smartystreets/goconvey/convey"
-	"github.com/Golang-Coach/Scheduler/mocks"
-	"gopkg.in/mgo.v2/bson"
-	"github.com/Golang-Coach/Scheduler/models"
-	"time"
 	"github.com/pkg/errors"
+	. "github.com/smartystreets/goconvey/convey"
+	"github.com/sniperkit/Scheduler/mocks"
+	"github.com/sniperkit/Scheduler/models"
+	"gopkg.in/mgo.v2/bson"
+	"testing"
+	"time"
 )
 
 func TestSchedule(t *testing.T) {
@@ -50,7 +50,7 @@ func TestSchedule(t *testing.T) {
 			RepoName: "react",
 		}
 		repos := []models.RepositoryInfo{repositoryInfo}
-		githubService.On("GetUpdatedRepositoryInfo", &repositoryInfo).WaitUntil(time.After(6 * time.Second)).Return(&repositoryInfo, nil)
+		githubService.On("GetUpdatedRepositoryInfo", &repositoryInfo).WaitUntil(time.After(6*time.Second)).Return(&repositoryInfo, nil)
 		dataStore.On("FindPackageWithinLimit", bson.M{}, 0, 500).Return(&repos, nil)
 		Schedule(dataStore, githubService)
 		So(githubService.AssertCalled(t, "GetUpdatedRepositoryInfo", &repositoryInfo), ShouldBeTrue)

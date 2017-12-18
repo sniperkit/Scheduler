@@ -1,9 +1,9 @@
 package services
 
 import (
-	"github.com/Golang-Coach/Scheduler/models"
-	"gopkg.in/mgo.v2/bson"
+	"github.com/sniperkit/Scheduler/models"
 	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type ICollection interface {
@@ -43,7 +43,7 @@ func (store DataStore) FindPackage(query interface{}) (*models.RepositoryInfo, e
 	// find package with limit
 	repositoryInfo := &models.RepositoryInfo{}
 	err := store.collection.Find(query).All(repositoryInfo)
-	return repositoryInfo, err;
+	return repositoryInfo, err
 }
 
 func (store DataStore) FindPackageWithinLimit(query interface{}, skip int, limit int) (*[]models.RepositoryInfo, error) {
@@ -57,6 +57,6 @@ func (store DataStore) FindPackageWithinLimit(query interface{}, skip int, limit
 	if skip > 0 {
 		result = result.Skip(skip)
 	}
-	err :=  result.All(repositoryInfos)
+	err := result.All(repositoryInfos)
 	return repositoryInfos, err
 }

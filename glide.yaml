@@ -1,0 +1,22 @@
+package: github.com/sniperkit/Scheduler
+import:
+- package: github.com/sniperkit/Scheduler
+  subpackages:
+  - models
+  - services
+- package: github.com/google/go-github
+  subpackages:
+  - github
+- package: github.com/shurcooL/github_flavored_markdown
+- package: github.com/stretchr/testify
+  subpackages:
+  - mock
+- package: gopkg.in/mailgun/mailgun-go.v1
+- package: gopkg.in/mgo.v2
+  subpackages:
+  - bson
+testImport:
+- package: github.com/pkg/errors
+- package: github.com/smartystreets/goconvey
+  subpackages:
+  - convey

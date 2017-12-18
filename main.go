@@ -2,21 +2,19 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"gopkg.in/mgo.v2"
+	"os"
 	"time"
 	//"net"
 	//"crypto/tls"
-	"github.com/Golang-Coach/Scheduler/services"
 	"context"
 	"github.com/google/go-github/github"
-
+	"github.com/sniperkit/Scheduler/services"
 	//"log"
-	//"github.com/Golang-Coach/Scheduler/models"
+	//"github.com/sniperkit/Scheduler/models"
 )
 
 func main() {
-
 
 	// TODO -- this is to create Github service
 	backgroundContext := context.Background()
@@ -40,8 +38,8 @@ func main() {
 	dialInfo := &mgo.DialInfo{
 		Addrs:    []string{"localhost:27017"}, // Get HOST + PORT
 		Timeout:  5 * time.Second,
-		Database: "admin",                                                                             // It can be anything
-		Username: "coach",                                                                             // Username
+		Database: "admin",    // It can be anything
+		Username: "coach",    // Username
 		Password: "Pa55word", // PASSWORD
 		//DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
 		//	return tls.Dial("tcp", addr.String(), &tls.Config{})
@@ -68,7 +66,7 @@ func main() {
 	// get collection
 	collection := session.DB("golang-couch").C("package")
 
-	 //insert Document in collection
+	//insert Document in collection
 	//err = collection.Insert(&models.RepositoryInfo{
 	//	RepoName:"react",
 	//	Owner:"facebook",
